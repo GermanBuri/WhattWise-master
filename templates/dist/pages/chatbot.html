@@ -2,12 +2,11 @@
 <html lang="en">
   <!--begin::Head-->
   <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE | Dashboard v2</title>
+    <title>WattWise</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="AdminLTE | Dashboard v2" />
+    <meta name="WattWise" content="AdminLTE | Dashboard v2" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
@@ -59,7 +58,7 @@
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <div class="preloader flex-column justify-content-center align-items-center" style="height: 0px;">
-      <img class="animation__wobble" src="/templates/dist/assets/img/logo w.jpeg" alt="AdminLTELogo" height="60" width="60" style="display: auto;">
+      <img class="animation__wobble" src="/templates/dist/assets/img/logow.jpeg" alt="AdminLTELogo" height="60" width="60" style="display: auto;">
     </div>
     
     <!--begin::App Wrapper-->
@@ -258,9 +257,9 @@
                 <li class="user-body">
                   <!--begin::Row-->
                   <div class="row">
-                    <div class="col-4 text-center"><a href="#">Followers</a></div>
-                    <div class="col-4 text-center"><a href="#">Sales</a></div>
-                    <div class="col-4 text-center"><a href="#">Friends</a></div>
+                    <div class="col-4 text-center"><a href="">Followers</a></div>
+                    <div class="col-4 text-center"><a href="">Sales</a></div>
+                    <div class="col-4 text-center"><a href="">Friends</a></div>
                   </div>
 
                   
@@ -269,8 +268,8 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
+                  <a href="" class="btn btn-default btn-flat">Profile</a>
+                  <a href="" class="btn btn-default btn-flat float-end">Sign out</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -289,23 +288,25 @@
       <!--Buscador preguntas chatbot-->
       <section class="content">
         <div class="container-fluid">
-            <h3 class="text-center display-4">¿En qué te puedo ayudar?</h3>
+            <h1 class="text-center display-2">⚡ Bienvenido a WattWise ⚡</h1>
+            <h2 class="text-center display-3"> Tu asistente virtual</h2>
+            <h3 class="text-center display-5">¿En qué te puedo ayudar?</h3>
             <div class="row">
                 <div class="col-md-9 offset-md-1">
                     <form action="simple-results.html">
                         <div class="input-group">
-                            <input type="search" id="pregunta" class="form-control form-control-lg" placeholder="Type your keywords here">
+                            <input type="search" id="pregunta" class="form-control form-control-lg" placeholder="Escribe tu duda sobre ahorro energético">
                             <div class="input-group-append">
-                            <button type="button" class="btn btn-dark" id="boton-chatbot">
-                            <img height="50px" width="50px" src="/templates/dist/assets/img/next.png" />
-
+                            <button type="button" class="btn btn-dark" id="boton-chatbot" title="Enviar pregunta">
+                            <img height="50px" width="50px" src="/templates/dist/assets/img/next.png" alt="Next button" />
                             </button> 
-                            <div id="chat-container"></div>
-
-                            <p id="respuesta"></p>
                             </div>
+                            
                         </div>
                     </form>
+                    <div id="chat-container"></div>
+
+                              <p id="respuesta"></p>
                 </div>
             </div>
             
