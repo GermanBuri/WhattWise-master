@@ -1913,6 +1913,7 @@ progress {
 .table-bordered-background {
   position: relative;
 }
+
 .center-image {
   display: flex;
   justify-content: center;
@@ -1925,6 +1926,7 @@ progress {
   align-items: center;
   height: 100vh; /* Para centrar verticalmente en la pantalla */
 }
+
 
 
 .table-bordered-background {
