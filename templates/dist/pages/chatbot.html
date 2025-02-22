@@ -280,6 +280,8 @@
         </div>
 
 
+
+
         
       </nav>
 
@@ -291,15 +293,21 @@
                 <div class="col-md-9 offset-md-1">
                     <form action="simple-results.html">
                         <div class="input-group">
-                            <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
+                            <input type="search" id="pregunta" class="form-control form-control-lg" placeholder="Type your keywords here">
                             <div class="input-group-append">
-                              <button type="button" class="btn btn-dark">Dark</button>
-                              
+                            <button type="button" class="btn btn-dark" id="boton-chatbot">
+                            <img height="50px" width="50px" src="/templates/dist/assets/img/next.png" />
+
+                            </button> 
+                            <div id="chat-container"></div>
+
+                            <p id="respuesta"></p>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+            
         </div>
     </section>
     
@@ -315,7 +323,7 @@
           <a href="./index.html" class="brand-link">
             <!--begin::Brand Image-->
             <img
-              src="../../dist/assets/img/logo w.jpeg"
+              src="../../dist/assets/img/logow.jpeg"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />
@@ -357,7 +365,48 @@
       <!--end::Footer-->
     </div>
     <!--end::App Wrapper-->
-    <!--begin::Script-->
+    <!--enlace preguntas chatbot-->
+    <script>
+      document.getElementById("boton-chatbot").addEventListener("click", function() {
+          let preguntaUsuario = document.getElementById("pregunta").value;
+          let chatContainer = document.getElementById("chat-container");
+
+          if (preguntaUsuario.trim() === "") {
+              alert("❌ Por favor, ingresa una pregunta.");
+              return;
+          }
+      
+          fetch(`/chatbot?pregunta_usuario=${encodeURIComponent(preguntaUsuario)}`)
+          .then(response => response.json())
+          .then(data => {
+             // Crear div para la pregunta
+        let preguntaDiv = document.createElement("div");
+        preguntaDiv.innerHTML = `<strong>Tú:</strong> ${preguntaUsuario}`;
+        preguntaDiv.style.background = "#e1f5fe";
+        preguntaDiv.style.padding = "10px";
+        preguntaDiv.style.margin = "5px 0";
+        preguntaDiv.style.borderRadius = "5px";
+
+        // Crear div para la respuesta
+        let respuestaDiv = document.createElement("div");
+        respuestaDiv.innerHTML = `<strong>Chatbot:</strong> ${data.Respuesta}`;
+        respuestaDiv.style.background = "#c8e6c9";
+        respuestaDiv.style.padding = "10px";
+        respuestaDiv.style.margin = "5px 0";
+        respuestaDiv.style.borderRadius = "5px";
+
+        // Agregar al contenedor de chat
+        chatContainer.appendChild(preguntaDiv);
+        chatContainer.appendChild(respuestaDiv);
+        
+        // Limpiar el input
+        document.getElementById("pregunta").value = "";
+    
+          })
+          
+          .catch(error => console.error("Error en la solicitud:", error));
+      });
+      </script>
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
       src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
